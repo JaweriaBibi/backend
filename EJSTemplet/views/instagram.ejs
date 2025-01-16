@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instagram</title>
+</head>
+<body>
+    <h1>Wellcome @<%= username %></h1>
+    <button>following <%= Math.floor(Math.random() * 100) %></button>
+    <button>followers <%= Math.floor(Math.random() * 100) %></button>
+    <ul>
+        <% follower_name.forEach(follower => { %>
+            <li><%= follower %></li>
+            <% }) %>
+    </ul>
+</body>
+</html>
