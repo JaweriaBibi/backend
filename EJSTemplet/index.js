@@ -6,7 +6,6 @@ app.set('view engine', 'ejs');
 const path = require('path');
 app.set('views', path.join(__dirname, 'views'))
 
-
 app.get('/home', (req, res) => {
     res.render('home')
 })
@@ -20,13 +19,25 @@ app.get('/roledice', (req, res) => {
     res.render('roledice')
 })
 
-app.get('/ig/:username', (req, res) => {
-    let follower_name =  ["ali" , "uzair" , "ahmad" , "hammad"]
-    let username = req.params.username;
-    // console.log(username)
-    res.render('instagram', {username , follower_name})
-})
+// app.get('/ig/:username', (req, res) => {
+//     let follower_name =  ["ali" , "uzair" , "ahmad" , "hammad"]
+//     let username = req.params.username;
+//     // console.log(username)
+//     res.render('instagram', {username , follower_name})
+// })
 
+app.get("/ig/:username", (req, res) => {
+    let {username} = req.params;
+    // console.log(username);
+    let instadata = require("./data.json");
+    let data =instadata[username];
+    console.log(data);
+    if(!data){
+        res.send("User not found");
+    }else{
+        res.render("instagram.ejs", {data})
+    }
+})
 app.listen(port, () => {
     console.log(`This port listening at ${port}`)
 })
