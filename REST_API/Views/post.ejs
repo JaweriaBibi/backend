@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instagram post</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Instagram</h1>
+    <% posts.forEach(posts => { %>
+        <div>
+            <h2><%= posts.id %></h2>
+            <h2><%= posts.username %></h2>
+            <h3><%= posts.title %></h3>
+            <p><%= posts.content %></p>
+            <a href="http://localhost:8080/post/<%= posts.id %>/edit"><button>edit</button></a>
+            <a href="http://localhost:8080/post/<%= posts.id %>"><button>view</button></a>
+            <a href="http://localhost:8080/post/<%= posts.id %>/delete"><button>delete</button></a>
+        </div>
+    <% }); %>
+    <a href="http://localhost:8080/post/new"><button>create new post</button></a>
+</body>
+</html>
