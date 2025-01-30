@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+</head>
+<body>
+    <h1>edit post</h1>
+    <h2>post id: <%= post.id %></h2>
+    <h2>username: <%= post.username %></h2>
+    <form action="/post/<%= post.id %>?_method=PATCH" method="POST">
+        <input type="text" name="title" placeholder="title" value="<%= post.title %>">
+        <br>
+        <br>
+        <textarea name="content" placeholder="content"><%= post.content %></textarea>
+        <br>
+        <br>
+        <button type="submit">submit</button>
+        <a href="http://localhost:8080/post"><button>cancel</button></a>
+    </form>
+    
+</body>
+</html>
